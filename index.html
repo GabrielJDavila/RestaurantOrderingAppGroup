@@ -5,15 +5,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <header class="header-container">
-            <h1 class="restaurant-name">Jimmy's Diner</h1>
+            <h3 class="restaurant-name">Jimmy's Diner</h3>
             <p class="header-description">The best burgers and pizzas in town.</p>
         </header>
-        <main id="menu-container">
-
+        <main>
+            <div id="menu-container"></div>
+            <div id="order-summary">
+                <h3 class="order-sum-title">Your Order</h3>
+                <div id="rendered-ordered-items">
+                    <div class="order-item">
+                        <h3>Text</h3>
+                        <p>price</p>
+                    </div>
+                </div>
+                <div class="total-price">
+                    <h3>total price:</h3>
+                    <p>$$</p>
+                </div>
+            </div>
         </main>
     <script src="index.js" type="module"></script>
     </body>

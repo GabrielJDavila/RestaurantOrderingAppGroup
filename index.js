@@ -8,8 +8,8 @@ function renderMenu() {
                 <p class="emoji">${item.emoji}</p>
                 <div class="menu-item-text-container">
                     <h3 class="menu-item-title">${item.name}</h3>
-                    <p>${item.ingredients}</p>
-                    <p class="price">${item.price}</p>
+                    <p class="menu-item-ingredients">${item.ingredients}</p>
+                    <p class="price">$${item.price}</p>
                 </div>
                 <button id="add-btn" class="add-btn">+</button>
             </div>`

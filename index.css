@@ -5,11 +5,13 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: "Smythe", cursive;
 }
 
 /* header styles */
 .header-container {
-    background: url("/assests/bgimage.png") 0 0 / contain no-repeat;
+    background: url("/assests/bgimage.png") 0 0 / cover no-repeat;
+    background-position: 35% 75%;
     height: 160px;
     width: 100%;
     padding: 1rem;
@@ -18,41 +20,90 @@ body {
 
 .restaurant-name {
     margin: 0;
+    font-size: 2.5rem;
 }
 
 .header-description {
     margin: 0;
+    font-size: 1.5rem;
 }
 
 /* menu styles */
 .menu-container {
     width: 100%;
     padding: 1rem;
+    margin-bottom: 4rem;
 }
 
 .menu-item {
     display: flex;
-    width: 95%;
+    width: 85%;
     align-items: center;
+    margin: 0 auto;
+    border-bottom: 1px solid lightgray;
 }
 
 .emoji {
     font-size: 4rem;
+    margin-right: 1rem;
+    text-align: left;
 }
 
 .menu-item-text-container {
     margin-right: auto;
 }
 
-/* .menu-item-title
+.menu-item-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
 
-.price */
+.menu-item-ingredients {
+    margin: .5rem 0;
+    color: #8B8B8B;
+}
+
+.price {
+    margin: 0;
+    font-size: 1.25rem;
+}
 
 .add-btn {
     margin-left: auto;
     background: white;
-    border: 1px solid black;
+    border: 1px solid #DEDEDE;
     border-radius: 100%;
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
+    font-family: sans-serif;
+}
+
+/* order summary styles */
+
+#order-summary {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#rendered-ordered-items {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.total-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
 }
