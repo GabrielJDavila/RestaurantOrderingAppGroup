@@ -16,19 +16,54 @@
             <p class="header-description">The best burgers and pizzas in town.</p>
         </header>
         <main>
+            <form id="modal">
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Enter your name"
+                >
+               
+                <input
+                    id="ccn"
+                    type="tel"
+                    inputmode="numeric"
+                    pattern="[0-9\s]{13,19}"
+                    autocomplete="cc-number"
+                    maxlength="19"
+                    placeholder="Enter card number"
+                >
+
+                <input
+                    id="cvv"
+                    type="number"
+                    max="999"
+                    maxlength="3"
+                    placeholder="Enter your CVV"
+                >
+                <button id="pay-btn">Pay</button>
+            </form>
             <div id="menu-container"></div>
             <div id="order-summary">
                 <h3 class="order-sum-title">Your Order</h3>
                 <div id="rendered-ordered-items">
+                    <!-- render order items dynamically -->
                     <div class="order-item">
-                        <h3>Text</h3>
-                        <p>price</p>
+                        <h3 class="order-item-child order-item-title">Text</h3>
+                        <button id="remove-btn" class="order-item-child">remove</button>
+                        <p class="order-item-child order-item-price">price</p>
                     </div>
                 </div>
-                <div class="total-price">
-                    <h3>total price:</h3>
-                    <p>$$</p>
+                <div class="total-price-container">
+                    <!-- render children dynamically, or concatenate the text -->
+                    <h3 class="total-price-title">total price:</h3>
+                    <p id="total-price">$12</p>
                 </div>
+                <button id="complete-order-btn">Complete order</button>
+            </div>
+            
+            <div id="message">
+                <!-- render this message dynamically -->
+                <p>Thanks James! Your order is on its way!</p>
             </div>
         </main>
     <script src="index.js" type="module"></script>
