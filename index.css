@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* header styles */
+.header-container {
+    background: url("/assests/bgimage.png") 0 0 / contain no-repeat;
+    height: 160px;
+    width: 100%;
+    padding: 1rem;
+    color: white;
+}
+
+.restaurant-name {
+    margin: 0;
+}
+
+.header-description {
+    margin: 0;
+}
+
+/* menu styles */
+.menu-container {
+    width: 100%;
+    padding: 1rem;
+}
+
+.menu-item {
+    display: flex;
+    width: 95%;
+    align-items: center;
+}
+
+.emoji {
+    font-size: 4rem;
+}
+
+.menu-item-text-container {
+    margin-right: auto;
+}
+
+/* .menu-item-title
+
+.price */
+
+.add-btn {
+    margin-left: auto;
+    background: white;
+    border: 1px solid black;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+}
