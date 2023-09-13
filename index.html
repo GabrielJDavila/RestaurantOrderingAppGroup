@@ -17,14 +17,21 @@
         </header>
         <main>
             <form id="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Enter card details</h3>
+                    <button id="close-btn">X</button>
+                </div>
+                
                 <input
                     id="name"
+                    class="modal-input"
                     type="text"
                     placeholder="Enter your name"
                 >
                
                 <input
                     id="ccn"
+                    class="modal-input"
                     type="tel"
                     inputmode="numeric"
                     pattern="[0-9\s]{13,19}"
@@ -35,8 +42,8 @@
 
                 <input
                     id="cvv"
-                    type="number"
-                    max="999"
+                    class="modal-input"
+                    type="text"
                     maxlength="3"
                     placeholder="Enter your CVV"
                 >
@@ -63,7 +70,7 @@
             
             <div id="message">
                 <!-- render this message dynamically -->
-                <p>Thanks James! Your order is on its way!</p>
+                <p class="message-text">Thanks James! Your order is on its way!</p>
             </div>
         </main>
     <script src="index.js" type="module"></script>
