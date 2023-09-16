@@ -12,6 +12,10 @@ main {
     position: relative;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* header styles */
 .header-container {
     background: url("/assests/bgimage.png") 0 0 / cover no-repeat;
@@ -236,7 +240,7 @@ main {
     background: #17a072;
 }
 
-#message {
+.message {
     display: flex;
     text-align: center;
     font-size: 1.75rem;
