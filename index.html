@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Jimmy's Diner</title>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&family=Inter:wght@200&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <header class="header-container">
-            <h3 class="restaurant-name">Jimmy's Diner</h3>
-            <p class="header-description">The best burgers and pizzas in town.</p>
+        <header class="header">
+            <div class="container">
+                <h1 class="header-title">Jimmy's Diner</h1>
+                <p class="header-description">The best burgers and pizzas in town.</p>
+            </div>
         </header>
+        
         <main>
-            <form id="modal" class="modal hide">
-                <div class="modal-header">
-                    <h3 class="modal-title">Enter card details</h3>
-                    <button id="close-btn">X</button>
+            <div class="container">
+                <div id="menu-container">
+                    <!-- populate dynamically, extracting data through js -->
                 </div>
+
+                <div id="order-summary" class="order-summary hide">
+                    <h3 class="order-sum-title">Your Order</h3>
+                    <div id="ordered-items" class="ordered-items">
+                        <!-- render order items dynamically -->
+                        <div class="order-item">
+                            <h3 class="order-item-title">Text</h3>
+                            <button id="remove-btn" class="remove-btn">remove</button>
+                            <p class="order-item-price">price</p>
+                        </div>
+                    </div>
+                    <div class="total-price-container">
+                        <!-- render children dynamically, or concatenate the text -->
+                        <h3 class="total-price-title">total price:</h3>
+                        <p id="total-price" class="total-price">$12</p>
+                    </div>
+                    <button id="complete-order-btn" class="complete-order-btn">Complete order</button>
+                </div>
+            </div>
+            
+            <div class="container hide">
+                <div id="message" class="message">
+                    <!-- render this message dynamically -->
+                    <p class="message-text">Thanks James! Your order is on its way!</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="modal hide">
+            <form id="payment-form" class="payment-form">
+                <h3 class="modal-title">Enter card details</h3>
                 
                 <input
                     id="name"
@@ -28,7 +62,7 @@
                     type="text"
                     placeholder="Enter your name"
                 >
-               
+            
                 <input
                     id="ccn"
                     class="modal-input"
@@ -47,32 +81,10 @@
                     maxlength="3"
                     placeholder="Enter your CVV"
                 >
-                <button id="pay-btn">Pay</button>
+                <button id="pay-btn" class="pay-btn">Pay</button>
             </form>
-            <div id="menu-container"></div>
-            <div id="order-summary">
-                <h3 class="order-sum-title">Your Order</h3>
-                <div id="rendered-ordered-items">
-                    <!-- render order items dynamically -->
-                    <div class="order-item">
-                        <h3 class="order-item-child order-item-title">Text</h3>
-                        <button id="remove-btn" class="order-item-child">remove</button>
-                        <p class="order-item-child order-item-price">price</p>
-                    </div>
-                </div>
-                <div class="total-price-container">
-                    <!-- render children dynamically, or concatenate the text -->
-                    <h3 class="total-price-title">total price:</h3>
-                    <p id="total-price">$12</p>
-                </div>
-                <button id="complete-order-btn">Complete order</button>
-            </div>
-            
-            <div id="message">
-                <!-- render this message dynamically -->
-                <p class="message-text">Thanks James! Your order is on its way!</p>
-            </div>
-        </main>
-    <script src="index.js" type="module"></script>
+        </div>
+
+        <script src="index.js" type="module"></script>
     </body>
 </html>

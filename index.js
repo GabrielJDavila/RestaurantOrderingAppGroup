@@ -6,7 +6,7 @@ function renderMenu() {
         menu.innerHTML+=
             `<div class="menu-item">
                 <p class="emoji">${item.emoji}</p>
-                <div class="menu-item-text-container">
+                <div class="menu-item-info-container">
                     <h3 class="menu-item-title">${item.name}</h3>
                     <p class="menu-item-ingredients">${item.ingredients}</p>
                     <p class="price">$${item.price}</p>
