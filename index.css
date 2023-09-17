@@ -93,6 +93,7 @@ main {
 
 .order-summary {
     margin: 3rem auto;
+    visibility: hidden;
 }
 
 .order-sum-title {
