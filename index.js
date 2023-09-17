@@ -1,17 +1,11 @@
 import { menuArray } from "./data.js";
 const menu = document.getElementById("menu-container")
-const addBtn = document.querySelectorAll(".add-btn")
 const orderSummary = document.getElementById("order-summary")
 const orderedItemsContainer = document.getElementById("ordered-items")
 const totalOrderPrice = document.getElementById("total-price")
 let orderArray = []
 
-addBtn.forEach(btn => {
-    btn.addEventListener("click", function() {
-        alert("works")
-    })
-})
-
+// listen for user clicks to menu items
 document.addEventListener("click", (e) => {
     if(e.target.dataset.add) {
         addItem(e.target.dataset.add)
@@ -20,11 +14,12 @@ document.addEventListener("click", (e) => {
     } 
 })
 
+// update new rendered order
 function updateOrder() {
     renderOrder()
-    console.log(orderArray)
 }
 
+// add item to order
 function addItem(itemId) {
     const itemObj = menuArray.filter(item => {
         return item.id.toString() === itemId
@@ -37,6 +32,7 @@ function addItem(itemId) {
     updateOrder()
 }
 
+// remove item from order
 function removeItem(itemId) {
     const itemObj = menuArray.filter(item => {
         return item.id.toString() === itemId
@@ -51,6 +47,7 @@ function removeItem(itemId) {
     updateOrder()
 }
 
+// render order to screen
 function renderOrder() {
     if(orderArray) {
         orderSummary.style.visibility = "visible"
@@ -72,6 +69,7 @@ function renderOrder() {
     }
 }
 
+// render menu items to screen
 function renderMenu() {
     return menuArray.forEach(item => {
         menu.innerHTML+=
