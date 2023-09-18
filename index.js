@@ -110,7 +110,8 @@ function renderOrder() {
 // function to render menu items to screen
 function renderMenu() {
     // menuItems is the result of calling map() on menuArray.
-    // Creates a new array of strings that are joined together by join().
+    // Creates a new array of strings for each item that returned by map()
+    // and are joined together by join("").
     const menuItems = menuArray.map(item => `
         <div class="menu-item">
             <p class="emoji">${item.emoji}</p>
