@@ -14,75 +14,83 @@ document.addEventListener("click", (e) => {
     } 
 })
 
-// update new rendered order
-function updateOrder() {
-    renderOrder()
-}
-
 // add item to order
-function addItem(itemId) {
-    const itemObj = menuArray.filter(item => {
-        return item.id.toString() === itemId
-    })[0]
-    itemObj.quantity++
-    itemObj.totalprice = itemObj.price * itemObj.quantity
-    if(!orderArray.includes(itemObj)) {
-        orderArray.push(itemObj)
+function addItem(itemId, quantityChange) {
+    const menuItem = menuArray.find(item => item.id.toString() === itemId)
+    if(menuItem) {
+        const existingItem = orderArray.find(item => item.id === menuItem.id)
+        
+        if(existingItem) {
+            existingItem.quantity++
+            existingItem.totalprice = existingItem.quantity * menuItem.price
+        } else {
+            const orderItem = {
+                id: menuItem.id,
+                name: menuItem.name,
+                quantity: 1,
+                totalprice: menuItem.price
+            }
+            orderArray.push(orderItem)
+        }
+        renderOrder()
     }
-    updateOrder()
 }
 
 // remove item from order
-function removeItem(itemId) {
-    const itemObj = menuArray.filter(item => {
-        return item.id.toString() === itemId
-    })[0]
-    if(itemObj.quantity > 0) {
-        itemObj.quantity--
-    itemObj.totalprice = itemObj.price * itemObj.quantity
+function removeItem(itemId, quantityChange) {
+    const menuItem = menuArray.find(item => item.id.toString() === itemId)
+    if(menuItem) {
+        const existingItem = orderArray.find(item => item.id === menuItem.id)
+        
+        if(existingItem.quantity > 0) {
+            existingItem.quantity--
+            existingItem.totalprice = existingItem.quantity * menuItem.price
+        }
+        orderArray = orderArray.filter(item => {
+            return item.quantity > 0
+        })
+        renderOrder()
     }
-    orderArray = orderArray.filter(item => {
-        return item.quantity > 0
-    })
-    updateOrder()
 }
+
 
 // render order to screen
 function renderOrder() {
-    if(orderArray) {
-        orderSummary.style.visibility = "visible"
-        let orderItems = ""
-        let orderTotal = 0
-        orderArray.forEach(item => {
-            orderItems += `
-            <div class="order-item">
-                <h3 class="order-item-title">${item.name}</h3>
-                <p class="quantity">Quantity: ${item.quantity}</p>
-                <button id="remove-btn" class="remove-btn" data-remove="${item.id}">remove</button>
-                <p class="order-item-price">$ ${item.totalprice}</p>
-            </div>
-            `
-            orderTotal += item.totalprice
-        })
-        orderedItemsContainer.innerHTML = orderItems
-        totalOrderPrice.textContent = `$ ${orderTotal}`
-    }
+    const hasItems = orderArray.length > 0
+    orderSummary.style.visibility = hasItems ? "visible" : "hidden"
+
+    const orderItems = orderArray.map(item => `
+        <div class="order-item">
+            <h3 class="order-item-title">${item.name}</h3>
+            <p class="quantity">Quantity: ${item.quantity}</p>
+            <button id="remove-btn" class="remove-btn" data-remove="${item.id}">remove</button>
+            <p class="order-item-price">$ ${item.totalprice}</p>
+        </div>
+        `
+    ).join("")
+
+    const orderTotal = orderArray.reduce((total, item) => total + item.totalprice, 0)
+
+    orderedItemsContainer.innerHTML = orderItems
+    totalOrderPrice.textContent = `$ ${orderTotal}`
+    
 }
 
 // render menu items to screen
 function renderMenu() {
-    return menuArray.forEach(item => {
-        menu.innerHTML+=
-            `<div class="menu-item">
-                <p class="emoji">${item.emoji}</p>
-                <div class="menu-item-info-container">
-                    <h3 class="menu-item-title">${item.name}</h3>
-                    <p class="menu-item-ingredients">${item.ingredients}</p>
-                    <p class="price">$${item.price}</p>
-                </div>
-                <button class="add-btn" data-add="${item.id}">+</button>
-            </div>`
-    })
+    const menuItems = menuArray.map(item => `
+        <div class="menu-item">
+            <p class="emoji">${item.emoji}</p>
+            <div class="menu-item-info-container">
+                <h3 class="menu-item-title">${item.name}</h3>
+                <p class="menu-item-ingredients">${item.ingredients}</p>
+                <p class="price">$${item.price}</p>
+            </div>
+            <button class="add-btn" data-add="${item.id}">+</button>
+        </div>`
+    ).join("")
+
+    menu.innerHTML = menuItems
 }
 
 renderMenu()
