@@ -4,6 +4,10 @@ const menu = document.getElementById("menu-container")
 const orderSummary = document.getElementById("order-summary")
 const orderedItemsContainer = document.getElementById("ordered-items")
 const totalOrderPrice = document.getElementById("total-price")
+const modal = document.getElementById("modal")
+const paymentForm = document.getElementById("payment-form")
+const message = document.getElementById("message")
+const inputName = document.getElementById("name")
 // orderArray is going to store elements from menuArray. We use this
 // so we can iterate over array and manipulate data without tampering with
 // menuArray data directly
@@ -13,12 +17,37 @@ let orderArray = []
 document.addEventListener("click", (e) => {
     // if user clicks the add/remove button, passes the corresponding dataset to
     // the function that is called for the add/remove
+    // if user clicks complete order, modal is revealed
     if(e.target.dataset.add) {
         addItem(e.target.dataset.add)
     } else if(e.target.dataset.remove) {
         removeItem(e.target.dataset.remove)
-    } 
+    } else if(e.target.dataset.complete) {
+        modal.classList.remove("hide")
+    }
 })
+
+// once user confirms payment and orders, preventDefault() is used to
+// stop the page from reloading. Then 2 functions hideElements() and renderMessage()
+// are called. The tasks within each function could all be called within the event
+// listener, as the scope is small, but for best practices created their own functions.
+paymentForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    hideElements()
+    renderMessage()
+})
+
+// hides the modal and orderSummary sections after payment is taken
+function hideElements() {
+    modal.classList.add("hide")
+    orderSummary.classList.add("hide")
+}
+
+// displays the message with the name the user entered with template literals
+function renderMessage() {
+    message.classList.remove("hide")
+    message.innerHTML = `<p class="message-text">Thanks ${inputName.value}! Your order is on its way!</p>`
+}
 
 // function to add item to order
 function addItem(itemId) {

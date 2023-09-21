@@ -40,19 +40,19 @@
                         <h3 class="total-price-title">total price:</h3>
                         <p id="total-price" class="total-price"></p>
                     </div>
-                    <button id="complete-order-btn" class="complete-order-btn">Complete order</button>
+                    <button id="complete-order-btn" class="complete-order-btn" data-complete="complete" >Complete order</button>
                 </div>
             </div>
             
-            <div class="container hide">
-                <div id="message" class="message">
+            <div id="message-container" class="container">
+                <div id="message" class="message hide">
                     <!-- render this message dynamically -->
                     <p class="message-text">Thanks James! Your order is on its way!</p>
                 </div>
             </div>
         </main>
 
-        <div class="modal hide">
+        <div id="modal" class="modal hide">
             <form id="payment-form" class="payment-form">
                 <h3 class="modal-title">Enter card details</h3>
                 
