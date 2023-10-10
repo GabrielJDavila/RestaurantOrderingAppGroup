@@ -1,10 +1,12 @@
 // initializing certain variables for easier access
 import { menuArray } from "./data.js";
+import { uuid, renderRatingModal } from "./ratingFeature.js";
+
 const menu = document.getElementById("menu-container")
 const orderSummary = document.getElementById("order-summary")
 const orderedItemsContainer = document.getElementById("ordered-items")
 const totalOrderPrice = document.getElementById("total-price")
-const modal = document.getElementById("modal")
+const paymentModal = document.getElementById("payment-modal")
 const paymentForm = document.getElementById("payment-form")
 const message = document.getElementById("message")
 const inputName = document.getElementById("name")
@@ -17,13 +19,13 @@ let orderArray = []
 document.addEventListener("click", (e) => {
     // if user clicks the add/remove button, passes the corresponding dataset to
     // the function that is called for the add/remove
-    // if user clicks complete order, modal is revealed
+    // if user clicks complete order, paymentModal is revealed
     if(e.target.dataset.add) {
         addItem(e.target.dataset.add)
     } else if(e.target.dataset.remove) {
         removeItem(e.target.dataset.remove)
     } else if(e.target.dataset.complete) {
-        modal.classList.remove("hide")
+        paymentModal.classList.remove("hide")
     }
 })
 
@@ -34,12 +36,13 @@ document.addEventListener("click", (e) => {
 paymentForm.addEventListener("submit", (e) => {
     e.preventDefault()
     hideElements()
+    renderRatingModal()
     renderMessage()
 })
 
-// hides the modal and orderSummary sections after payment is taken
+// hides the paymentModal and orderSummary sections after payment is taken
 function hideElements() {
-    modal.classList.add("hide")
+    paymentModal.classList.add("hide")
     orderSummary.classList.add("hide")
 }
 

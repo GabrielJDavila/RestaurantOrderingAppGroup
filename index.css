@@ -231,6 +231,14 @@ button {
     cursor: pointer;
 }
 
+.fa-solid {
+    color: #999;
+}
+
+.rating {
+    color: rgb(255, 204, 0);
+}
+
 /* /////////////// UTILITY CLASSES //////////////// */
 
 /* hide class for rendering/hiding elements with JS */
