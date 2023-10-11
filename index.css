@@ -169,9 +169,9 @@ main {
     margin: 1.5em auto 8em;
 }
 
-/* /////////////////// MODAL ////////////////////// */
+/* /////////////////// MODALS ////////////////////// */
 
-.payment-form {
+.modal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -225,18 +225,32 @@ main {
     background: #17a072;
 }
 
-/* //////////////// ADDITIONS ///////////////////// */
+.rating-modal {
+    padding-bottom: 3em;
+}
 
-button {
-    cursor: pointer;
+.rating-modal > .modal-title {
+    margin-bottom: 1.5em;
+}
+
+.rating {
+    text-align: center;
 }
 
 .fa-solid {
     color: #999;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
-.rating {
+.rated {
     color: rgb(255, 204, 0);
+}
+
+/* //////////////// ADDITIONS ///////////////////// */
+
+button {
+    cursor: pointer;
 }
 
 /* /////////////// UTILITY CLASSES //////////////// */
@@ -244,4 +258,18 @@ button {
 /* hide class for rendering/hiding elements with JS */
 .hide {
     display: none;
+}
+
+.disappear {
+    animation: disappear 3s linear forwards;
+}
+
+@keyframes disappear {
+    from {
+        visibility: visible;
+    }
+
+    to {
+        visibility: hidden;
+    }
 }
