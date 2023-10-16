@@ -74,7 +74,8 @@ function addItem(itemId) {
                 id: menuItem.id,
                 name: menuItem.name,
                 quantity: 1,
-                totalprice: menuItem.price
+                totalprice: menuItem.price,
+                emoji: menuItem.emoji
             }
             orderArray.push(orderItem)
         }
@@ -123,7 +124,7 @@ function renderOrder() {
         <div class="order-item">
             <h3 class="order-item-title">${item.name}</h3>
             <p class="quantity">Quantity: ${item.quantity}</p>
-            <button id="remove-btn" class="remove-btn" data-remove="${item.id}">remove</button>
+            <button id="remove-btn" class="remove-btn" data-remove="${item.id}" data-emoji="${item.emoji}">remove</button>
             <p class="order-item-price">$ ${item.totalprice}</p>
         </div>
         `
@@ -152,7 +153,7 @@ function renderMenu() {
                 <p class="menu-item-ingredients">${item.ingredients}</p>
                 <p class="price">$${item.price}</p>
             </div>
-            <button class="add-btn" data-add="${item.id}">+</button>
+            <button class="add-btn" data-add="${item.id}" data-emoji="${item.emoji}">+</button>
         </div>`
     ).join("")
 
@@ -161,3 +162,5 @@ function renderMenu() {
 }
 
 renderMenu()
+
+export { totalOrderPrice, orderArray, renderOrder }
