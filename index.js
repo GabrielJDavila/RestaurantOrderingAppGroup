@@ -14,6 +14,7 @@ const inputName = document.getElementById("name")
 // so we can iterate over array and manipulate data without tampering with
 // menuArray data directly
 let orderArray = []
+let orderTotal = 0
 
 // listen for user clicks to menu items
 document.addEventListener("click", (e) => {
@@ -71,11 +72,9 @@ function addItem(itemId) {
             // if item is not in orderArray, create a new object in array with
             // the properties below, and push it to the array.
             const orderItem = {
-                id: menuItem.id,
-                name: menuItem.name,
+                ...menuItem,
                 quantity: 1,
                 totalprice: menuItem.price,
-                emoji: menuItem.emoji
             }
             orderArray.push(orderItem)
         }
@@ -131,7 +130,7 @@ function renderOrder() {
     ).join("")
 
     // orderTotal uses the reduce() method to calculate the total price of the order.
-    const orderTotal = orderArray.reduce((total, item) => total + item.totalprice, 0)
+    orderTotal = orderArray.reduce((total, item) => total + item.totalprice, 0)
 
     // We set orderItems to the innerHTML of the orderedItemsContainer;
     // And set orderTotal to the textContent of totalOrderPrice
@@ -163,4 +162,4 @@ function renderMenu() {
 
 renderMenu()
 
-export { totalOrderPrice, orderArray, renderOrder }
+export { totalOrderPrice, orderArray, renderOrder, orderTotal }
