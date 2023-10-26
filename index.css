@@ -281,3 +281,18 @@ button {
         visibility: hidden;
     }
 }
+
+/* ///////////// MEDIA QUERY ///////////////// */
+
+@media (min-width: 838px) {
+    
+    main .container {
+        display: flex;
+        gap: 5em;
+    }
+
+    main .container > * {
+        flex: 1;
+    }
+
+}
