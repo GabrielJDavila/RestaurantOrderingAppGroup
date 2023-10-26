@@ -285,6 +285,10 @@ button {
 /* ///////////// MEDIA QUERY ///////////////// */
 
 @media (min-width: 838px) {
+
+    header .container {
+        text-align: center;
+    }
     
     main .container {
         display: flex;
@@ -293,6 +297,10 @@ button {
 
     main .container > * {
         flex: 1;
+    }
+
+    .order-sum-title {
+        margin-top: 0;
     }
 
 }
