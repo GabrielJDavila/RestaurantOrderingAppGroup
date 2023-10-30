@@ -20,7 +20,7 @@ main {
 /* //////////////////// HEADER ///////////////////// */
 
 .header {
-    background: url("/assests/bgimage.png") 0 0 / cover no-repeat;
+    background: url("/assets/images/bgimage.png") 0 0 / cover no-repeat;
     background-position: center;
     padding: 3em 0 4em;
     color: white;
