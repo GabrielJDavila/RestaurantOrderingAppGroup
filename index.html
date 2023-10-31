@@ -28,7 +28,7 @@
 
     <main>
         <div class="container">
-            <div id="menu-container">
+            <div id="menu-container" class="menu-container">
                 <!-- populate dynamically, extracting data through js -->
             </div>
 
@@ -36,11 +36,6 @@
                 <h3 class="order-sum-title">Your Order</h3>
                 <div id="ordered-items" class="ordered-items">
                     <!-- render order items dynamically -->
-                    <!-- <div class="order-item">
-                            <h3 class="order-item-title">Text</h3>
-                            <button id="remove-btn" class="remove-btn">remove</button>
-                            <p class="order-item-price">price</p>
-                        </div> -->
                 </div>
                 <div id="meal-discount" class="meal-discount"></div>
 
@@ -54,12 +49,11 @@
                 <button id="complete-order-btn" class="complete-order-btn" data-complete="complete">Complete
                     order</button>
             </div>
-        </div>
 
-        <div id="message-container" class="container">
-            <div id="message" class="message hide">
-                <!-- render this message dynamically -->
-                <p class="message-text">Thanks James! Your order is on its way!</p>
+            <div id="message-container" class="message-container hide">
+                <!-- <div id="message" class="message hide"> -->
+                    <!-- render this message dynamically -->
+                <!-- </div> -->
             </div>
         </div>
     </main>

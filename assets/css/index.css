@@ -173,7 +173,7 @@ hr {
 
 /* //////////////// MESSAGE /////////////////////// */
 
-.message {
+.message-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -298,16 +298,35 @@ button {
     }
     
     main .container {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "menu transaction-related";
         gap: 5em;
     }
 
-    main .container > * {
-        flex: 1;
+    .menu-container {
+        grid-area: menu;
+    }
+
+    .message-container {
+        grid-area: transaction-related;
+        align-self: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .order-summary {
+        grid-area: transaction-related;
+        width: 100%;
     }
 
     .order-sum-title {
         margin-top: 0;
+    }
+
+    .modal {
+        width: 25%;
     }
 
 }

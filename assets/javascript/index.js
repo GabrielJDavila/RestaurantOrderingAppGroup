@@ -8,7 +8,7 @@ const orderedItemsContainer = document.getElementById("ordered-items")
 const totalOrderPrice = document.getElementById("total-price")
 const paymentModal = document.getElementById("payment-modal")
 const paymentForm = document.getElementById("payment-form")
-const message = document.getElementById("message")
+const messageContainer = document.getElementById("message-container")
 const inputName = document.getElementById("name")
 // orderArray is going to store elements from menuArray. We use this
 // so we can iterate over array and manipulate data without tampering with
@@ -49,8 +49,8 @@ function hideElements() {
 
 // displays the message with the name the user entered with template literals
 function renderMessage() {
-    message.classList.remove("hide")
-    message.innerHTML = `<p class="message-text">Thanks ${inputName.value}! Your order is on its way!</p>`
+    messageContainer.classList.remove("hide")
+    messageContainer.innerHTML = `<p class="message-text">Thanks ${inputName.value}! Your order is on its way!</p>`
 }
 
 // function to add item to order
