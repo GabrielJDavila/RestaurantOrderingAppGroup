@@ -9,7 +9,10 @@ const totalOrderPrice = document.getElementById("total-price")
 const paymentModal = document.getElementById("payment-modal")
 const paymentForm = document.getElementById("payment-form")
 const messageContainer = document.getElementById("message-container")
+const closeModalBtn = document.getElementById("close-modal-btn")
 const inputName = document.getElementById("name")
+const inputCCNum = document.getElementById("ccn")
+const inputCVV = document.getElementById("cvv")
 // orderArray is going to store elements from menuArray. We use this
 // so we can iterate over array and manipulate data without tampering with
 // menuArray data directly
@@ -39,7 +42,21 @@ paymentForm.addEventListener("submit", (e) => {
     hideElements()
     renderRatingModal()
     renderMessage()
+    clearForm()
 })
+
+// closes payment modal if user wants to edit order
+closeModalBtn.addEventListener("click", (e) => {
+    paymentModal.classList.add("hide")
+})
+
+// clears input values
+function clearForm() {
+    inputName.value = ""
+    inputCCNum.value = ""
+    inputCVV.value = ""
+}
+
 
 // hides the paymentModal and orderSummary sections after payment is taken
 function hideElements() {
