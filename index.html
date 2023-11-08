@@ -58,7 +58,7 @@
 
     <div id="payment-modal" class="modal payment-modal hide">
         <form id="payment-form" class="payment-form">
-            <button id="close-modal-btn" class="close-btn">X</button>
+            <button type="button" id="close-modal-btn" class="close-btn">X</button>
             <h3 class="modal-title">Enter card details</h3>
 
             <input id="name" class="modal-input" type="text" placeholder="Enter your name" required>
@@ -67,7 +67,7 @@
                 autocomplete="cc-number" maxlength="19" placeholder="Enter card number" required>
 
             <input id="cvv" class="modal-input" type="text" maxlength="3" placeholder="Enter your CVV" required>
-            <button id="pay-btn" class="pay-btn">Pay</button>
+            <button type="submit" vid="pay-btn" class="pay-btn">Pay</button>
         </form>
     </div>
 
